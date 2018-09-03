@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "Gidi",
+  "age": 50.5,
+  "favoritesColors": [
+    "White",
+    "Red"
+  ],
+  "info": "Description...."
+}
