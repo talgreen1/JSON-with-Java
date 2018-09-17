@@ -116,6 +116,7 @@ public class SerializationAndDeserialization {
         // Unchecked assignment warning
 //        List<Integer> list = gson.fromJson(fileReader, List.class);
 
+        // Use TypeToken to get real type
         Type collectionType = new TypeToken<List<Integer>>() {}.getType();
         List<Integer> list = gson.fromJson(fileReader, collectionType);
 
