@@ -1,4 +1,4 @@
-package _05_rest_assured_json_path;
+package _06_rest_assured_extract_json_body;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

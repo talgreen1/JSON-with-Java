@@ -1,7 +1,5 @@
-package _05_rest_assured_json_path;
+package _06_rest_assured_extract_json_body;
 
-import _05_rest_assured_json_path.Address;
-import _05_rest_assured_json_path.Company;
 import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;
 

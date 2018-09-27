@@ -1,6 +1,5 @@
 package _04_serialization_and_deserialization;
 
-import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -9,36 +8,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-public class SerializationAndDeserialization {
+public class Deserialization {
     public static void main(String[] args) throws FileNotFoundException {
-//        primitivesSerialization();
 //        primitivesDeserialization();
-//        objectSerialization();
-//        objectDeserialization();
-//        collectionSerialization();
-        collectionDeserialization();
+        objectDeserialization();
+//        collectionDeserialization();
     }
 
-    private static void primitivesSerialization() {
-        // Serialization = From instance to JSON
-        Gson gson = new Gson();
-        String res;
-        res = gson.toJson(1);            // ==> 1
-        System.out.println(res);
-
-        res = gson.toJson("abcd");       // ==> "abcd"
-        System.out.println(res);
-
-        res = gson.toJson(new Long(10)); // ==> 10
-        System.out.println(res);
-
-        int[] values = {1};
-        res = gson.toJson(values);       // ==> [1]
-        System.out.println(res);
-    }
 
     private static void primitivesDeserialization() throws FileNotFoundException {
         // Deserialization - From JSON to instance
@@ -67,20 +45,6 @@ public class SerializationAndDeserialization {
 
     }
 
-    private static void objectSerialization() {
-//        Gson gson = new Gson();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Person person = new Person(1, "Gidi", 50.5, new String[]{"White", "Red"}, null);
-        String json = gson.toJson(person);
-
-        System.out.println(json);
-
-        person = new Person(1, "Alon", 60, new String[]{"Blue"}, "Description....");
-        json = gson.toJson(person);
-
-        System.out.println(json);
-    }
 
     private static void objectDeserialization() throws FileNotFoundException {
         Gson gson = new Gson();
@@ -97,13 +61,6 @@ public class SerializationAndDeserialization {
 
     }
 
-    private static void collectionSerialization() {
-        Gson gson = new Gson();
-        List<Integer> numbers = Arrays.asList(1,2,3,4,5);
-
-        String json = gson.toJson(numbers);
-        System.out.println(json);
-    }
 
     private static void collectionDeserialization() throws FileNotFoundException {
         Gson gson = new Gson();

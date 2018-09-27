@@ -1,14 +1,16 @@
 package _05_rest_assured_json_path;
 
+import _06_rest_assured_extract_json_body.Person;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
 import static io.restassured.RestAssured.when;
-import static org.hamcrest.Matchers.hasItems;
+import static io.restassured.specification.ProxySpecification.host;
 
 /**
  * http://www.jsonschema2pojo.org/
@@ -16,24 +18,40 @@ import static org.hamcrest.Matchers.hasItems;
 public class RestAssuredJsonPath {
 
     public static void main(String[] args) {
-        String json = when()
-                .get("http://jsonplaceholder.typicode.com/users")
-                .then()
-                .extract().body().asString();
+        RestAssured.proxy = host("one.proxy.att.com").withPort(8888);
 
-        System.out.println(json);
+        extractJsonPath();
 
 
-        Gson gson = new Gson();
 
-        Type listOfPersonType = new TypeToken<List<Person>>() {}.getType();
+    }
 
-        List<Person> persons = gson.fromJson(json, listOfPersonType);
+    private static void extractJsonPath() {
+        // JSON with simple object - extract primitives
+        JsonPath jsonPath = when()
+                .get("http://jsonplaceholder.typicode.com/posts/1")
+                .jsonPath();
+
+        String stringVal;
+        int intVal;
+        double doubleVal;
+
+        stringVal = jsonPath.get("title");
+        System.out.println(stringVal);
+
+        stringVal = jsonPath.getString("title");
+        System.out.println(stringVal);
+
+        intVal = jsonPath.get("id");
+        System.out.println(intVal);
+
+        doubleVal = jsonPath.getDouble("id");
+        System.out.println(doubleVal);
 
 
-        System.out.println(persons.size());
-        System.out.println(persons.get(1).getAddress().getCity());
-
-
+//                = jsonPath.getString("userId");
+//        System.out.println(res);
+//
+//        stringjsonPath.get("title");
     }
 }
