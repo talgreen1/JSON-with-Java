@@ -15,7 +15,7 @@ import static io.restassured.specification.ProxySpecification.host;
 public class A_RestAssuredExtractJsonPath {
 
     public static void main(String[] args) {
-        RestAssured.proxy = host("one.proxy.att.com").withPort(8888);
+        RestAssured.proxy = host("PROXY").withPort(8888);
 
 //        extractJsonPath_Primitives();
 //        extractJsonPath_Arrays();

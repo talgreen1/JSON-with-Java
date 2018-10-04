@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 
 public class B_RestAssuredJsonPathAssertion {
     public static void main(String[] args) {
-        RestAssured.proxy = host("one.proxy.att.com").withPort(8888);
+        RestAssured.proxy = host("PROXY").withPort(8888);
 
         when()
                 .get("http://jsonplaceholder.typicode.com/users")
