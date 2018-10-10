@@ -15,14 +15,13 @@ import static io.restassured.specification.ProxySpecification.host;
 public class A_RestAssuredExtractJsonPath {
 
     public static void main(String[] args) {
-        RestAssured.proxy = host("PROXY").withPort(8888);
+        RestAssured.proxy = host("PROXY.").withPort(8888);
 
 //        extractJsonPath_Primitives();
 //        extractJsonPath_Arrays();
 //        extractJsonPath_InnerObject();
-//        extractJsonPath_ArrayAndInnerObject();
-
-        extractJsonPath_Advanced();
+        extractJsonPath_ArrayAndInnerObject();
+//        extractJsonPath_Advanced();
     }
 
     private static void extractJsonPath_Advanced() {
@@ -99,11 +98,5 @@ public class A_RestAssuredExtractJsonPath {
 
         doubleVal = jsonPath.getDouble("id");
         System.out.println(doubleVal);
-
-
-//                = jsonPath.getString("userId");
-//        System.out.println(res);
-//
-//        stringjsonPath.get("title");
     }
 }
