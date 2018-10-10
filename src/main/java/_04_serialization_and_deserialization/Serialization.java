@@ -4,16 +4,22 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 public class Serialization {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         primitivesSerialization();
         arraySerialization();
         collectionSerialization();
         objectSerialization();
+        writeToFile();
+
     }
+
+
 
     private static void primitivesSerialization() {
         // Serialization = From instance to JSON
@@ -66,6 +72,16 @@ public class Serialization {
 
         String json = gson.toJson(numbers);
         System.out.println(json);
+    }
+
+    private static void writeToFile() throws IOException {
+        Gson gson = new Gson();
+
+        Person person = new Person(1, "Gidi", 50.5, new String[]{"White", "Red"}, null);
+
+        try (FileWriter writer = new FileWriter("c:/temp/person.json");) {
+            gson.toJson(person, writer);
+        }
     }
 
 }
