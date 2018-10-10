@@ -12,10 +12,10 @@ public class GsonParsing {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-//        simpleValuesJson();
+        simpleValuesJson();
         simpleObjectParsing();
-//        simpleArrayParsing();
-//        objectWithArrayParsing();
+        simpleArrayParsing();
+        objectWithArrayParsing();
 
     }
 
