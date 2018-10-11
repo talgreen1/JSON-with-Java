@@ -12,9 +12,9 @@ import java.util.List;
 
 public class Deserialization {
     public static void main(String[] args) throws FileNotFoundException {
-//        primitivesDeserialization();
+        primitivesDeserialization();
         objectDeserialization();
-//        collectionDeserialization();
+        collectionDeserialization();
     }
 
 
