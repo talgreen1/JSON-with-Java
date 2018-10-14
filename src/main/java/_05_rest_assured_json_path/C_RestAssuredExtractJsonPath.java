@@ -7,20 +7,19 @@ import java.util.List;
 
 import static io.restassured.RestAssured.when;
 import static io.restassured.specification.ProxySpecification.host;
+import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**
  * Rest Assured uses Groovy's GPath syntax: http://groovy-lang.org/processing-xml.html#_gpath
  *
  */
-public class A_RestAssuredExtractJsonPath {
+public class C_RestAssuredExtractJsonPath extends RestAssuredBase{
 
     public static void main(String[] args) {
-        RestAssured.proxy = host("PROXY.").withPort(8888);
-
 //        extractJsonPath_Primitives();
-//        extractJsonPath_Arrays();
+        extractJsonPath_Arrays();
 //        extractJsonPath_InnerObject();
-        extractJsonPath_ArrayAndInnerObject();
+//        extractJsonPath_ArrayAndInnerObject();
 //        extractJsonPath_Advanced();
     }
 
@@ -70,10 +69,12 @@ public class A_RestAssuredExtractJsonPath {
         List<String> titles;
 
         titles = jsonPath.get("title");
+        assertThat(titles).hasSize(100);
         System.out.println("The titles are: \n" + titles);
 
         String title;
         title = jsonPath.get("title[0]");
+        assertThat(title).isEqualTo("sunt aut facere repellat provident occaecati excepturi optio reprehenderit");
         System.out.println(title);
     }
 

@@ -1,0 +1,14 @@
+{
+  "name": "John",
+  "age": 30,
+  "cars": [
+    "Ford",
+    "BMW",
+    "Fiat"
+  ],
+  "address":{
+    "street":"Negev",
+    "number":23,
+    "city":"Airport City"
+  }
+}

@@ -9,10 +9,8 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 
-public class B_RestAssuredJsonPathAssertion {
+public class D_InlineJsonPath extends RestAssuredBase{
     public static void main(String[] args) {
-        RestAssured.proxy = host("PROXY").withPort(8888);
-
         when()
                 .get("http://jsonplaceholder.typicode.com/users")
         .then()
