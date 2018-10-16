@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class Serialization {
+public class GsonSerialization {
     public static void main(String[] args) throws IOException {
         primitivesSerialization();
         arraySerialization();
@@ -22,7 +22,7 @@ public class Serialization {
 
 
     private static void primitivesSerialization() {
-        // Serialization = From instance to JSON
+        // GsonSerialization = From instance to JSON
         Gson gson = new Gson();
         String res;
 

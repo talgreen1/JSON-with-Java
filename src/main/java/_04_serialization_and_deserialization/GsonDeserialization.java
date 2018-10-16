@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 
-public class Deserialization {
+public class GsonDeserialization {
     public static void main(String[] args) throws FileNotFoundException {
         primitivesDeserialization();
         objectDeserialization();
@@ -19,7 +19,7 @@ public class Deserialization {
 
 
     private static void primitivesDeserialization() throws FileNotFoundException {
-        // Deserialization - From JSON to instance
+        // GsonDeserialization - From JSON to instance
         Gson gson = new Gson();
 
         int intResult = gson.fromJson("1", int.class);
