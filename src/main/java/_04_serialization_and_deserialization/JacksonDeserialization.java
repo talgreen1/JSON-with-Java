@@ -11,12 +11,25 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class JacksonDeserialization {
     public static void main(String[] args) throws IOException {
 //        primitivesDeserialization();
 //        objectDeserialization();
-        collectionDeserialization();
+//        collectionDeserialization();
+        deserializeToMap();
+    }
+
+    private static void deserializeToMap() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
+        Map<String, Object> map = mapper.readValue(json,  new TypeReference<Map<String,Object>>(){});
+        System.out.println(map);
+
+        map = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/personWithCarsInnerObject.json"), new TypeReference<Map<String,Object>>(){});
+        System.out.println(map);
     }
 
     private static void collectionDeserialization() throws IOException {
