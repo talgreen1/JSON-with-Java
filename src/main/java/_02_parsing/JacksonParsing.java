@@ -2,6 +2,8 @@ package _02_parsing;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -13,12 +15,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
 
+/**
+ * https://github.com/FasterXML/jackson-docs
+ */
 public class JacksonParsing {
     public static void main(String[] args) throws IOException {
-//        simpleValuesJson();
-//        simpleObjectParsing();
-//        simpleArrayParsing();
-//        objectWithArrayParsing();
+        simpleValuesJson();
+        simpleObjectParsing();
+        simpleArrayParsing();
+        objectWithArrayParsing();
     }
 
     private static void objectWithArrayParsing() throws IOException {
@@ -63,8 +68,6 @@ public class JacksonParsing {
             for (int i=0; i<node.size(); i++){
                 System.out.println(node.get(i).asText());
             }
-
-
         }
     }
 
