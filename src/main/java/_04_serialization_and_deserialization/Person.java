@@ -11,6 +11,9 @@ public class Person {
     private String info = null;
     private transient boolean inCache= false;
 
+    public Person() {
+    }
+
     public Person(int id, String name, double age, String[] favoritesColors, String info) {
         this.id = id;
         this.name = name;
