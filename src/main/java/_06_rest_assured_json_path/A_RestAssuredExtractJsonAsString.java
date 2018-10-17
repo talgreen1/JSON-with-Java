@@ -1,9 +1,4 @@
-package _05_rest_assured_json_path;
-
-import com.google.gson.JsonObject;
-import io.restassured.path.json.JsonPath;
-
-import java.util.List;
+package _06_rest_assured_json_path;
 
 import static io.restassured.RestAssured.when;
 

@@ -1,10 +1,8 @@
-package _05_rest_assured_json_path;
+package _06_rest_assured_json_path;
 
-import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
 
 import static io.restassured.RestAssured.when;
-import static io.restassured.specification.ProxySpecification.host;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;

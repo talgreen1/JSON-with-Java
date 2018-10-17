@@ -1,4 +1,4 @@
-package _06_rest_assured_and_gson_deserialization;
+package _07_rest_assured_and_gson_deserialization;
 
 import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;

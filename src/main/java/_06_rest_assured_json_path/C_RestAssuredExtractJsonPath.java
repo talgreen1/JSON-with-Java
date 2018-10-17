@@ -1,12 +1,10 @@
-package _05_rest_assured_json_path;
+package _06_rest_assured_json_path;
 
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import java.util.List;
 
 import static io.restassured.RestAssured.when;
-import static io.restassured.specification.ProxySpecification.host;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 /**

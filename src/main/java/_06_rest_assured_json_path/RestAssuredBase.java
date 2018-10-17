@@ -1,4 +1,4 @@
-package _05_rest_assured_json_path;
+package _06_rest_assured_json_path;
 
 import io.restassured.RestAssured;
 
