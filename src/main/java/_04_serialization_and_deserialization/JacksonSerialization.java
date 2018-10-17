@@ -10,10 +10,10 @@ import java.util.List;
 
 public class JacksonSerialization {
     public static void main(String[] args) throws IOException {
-//            primitivesSerialization();
-//        collectionSerialization();
-//        objectSerialization();
-            writeToFile();
+        primitivesSerialization();
+        collectionSerialization();
+        objectSerialization();
+        writeToFile();
     }
 
     private static void writeToFile() throws IOException {

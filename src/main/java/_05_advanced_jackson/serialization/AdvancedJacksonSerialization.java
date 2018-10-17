@@ -4,17 +4,74 @@ package _05_advanced_jackson.serialization;
 import _05_advanced_jackson.serialization.models.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.IOException;
 
 public class AdvancedJacksonSerialization {
     public static void main(String[] args) throws IOException {
 //        noAnnotations();
+        prettyPrint();
 //        jsonGetterAnnotation();
-        jsonPropertyOrder();
+//        jsonPropertyOrderAnnotation();
+//        jsonRawValueAnnotation();
+//        jsonRootName();
     }
 
-    private static void jsonPropertyOrder() throws JsonProcessingException {
+    private static void prettyPrint() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+        Person p = new Person(1, "Yoni", 50.5);
+
+        // By default - the json is 1 line
+        json = mapper.writeValueAsString(p);
+        System.out.println("p: " + json);
+
+        // You can add indentations by using pretty print
+
+        // Option 1: Change the current mapper:
+        json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(p);
+        System.out.println("Pretty: \n" + json);
+    }
+
+    private static void jsonRootName() throws JsonProcessingException {
+        // You can enable the WRAP_ROOT_VALUE feature to add the class name as root
+        ObjectMapper mapper = new ObjectMapper().configure(SerializationFeature.WRAP_ROOT_VALUE, true);
+        String json;
+
+        Person p = new Person(1, "tal\"", 50.5);
+        json = mapper.writeValueAsString(p);
+
+        System.out.println("p: " + json);
+
+        // Change the root name by using the annotation @jsonRootName
+        Person8 p8 = new Person8(1, "tal\"", 50.5);
+        json = mapper.writeValueAsString(p8);
+
+        System.out.println("p8: " + json);
+
+        // You can change the mapper later on:
+        mapper.writer(SerializationFeature.WRAP_ROOT_VALUE).writeValueAsString(p8);
+
+    }
+
+    private static void jsonRawValueAnnotation() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+
+        Person p = new Person(1, "tal\"", 50.5);
+        json = mapper.writeValueAsString(p);
+
+        System.out.println("p: " + json);
+
+        // Use the @jsonRawValueAnnotation to skip escaping and and do not add " "
+        Person7 p7 = new Person7(1, "tal\"", 50.5);
+        json = mapper.writeValueAsString(p7);
+
+        System.out.println("p7: " + json);
+    }
+
+    private static void jsonPropertyOrderAnnotation() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         String json;
 
