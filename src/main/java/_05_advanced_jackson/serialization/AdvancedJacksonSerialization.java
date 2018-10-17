@@ -32,6 +32,18 @@ public class AdvancedJacksonSerialization {
         // Option 1: Change the current mapper:
         json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(p);
         System.out.println("Pretty: \n" + json);
+
+        // Option 2: Create mapper with pretty feature enabled - syntax 1
+        mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+        json = mapper.writeValueAsString(p);
+        System.out.println("Pretty: \n" + json);
+
+        // Option 2: Create mapper with pretty feature enabled - syntax 2
+        mapper = new ObjectMapper().configure(SerializationFeature.INDENT_OUTPUT, true);
+        json = mapper.writeValueAsString(p);
+        System.out.println("Pretty: \n" + json);
+
+
     }
 
     private static void jsonRootName() throws JsonProcessingException {
