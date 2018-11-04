@@ -14,11 +14,11 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 public class C_RestAssuredExtractJsonPath extends RestAssuredBase{
 
     public static void main(String[] args) {
-//        extractJsonPath_Primitives();
+        extractJsonPath_Primitives();
         extractJsonPath_Arrays();
-//        extractJsonPath_InnerObject();
-//        extractJsonPath_ArrayAndInnerObject();
-//        extractJsonPath_Advanced();
+        extractJsonPath_InnerObject();
+        extractJsonPath_ArrayAndInnerObject();
+        extractJsonPath_Advanced();
     }
 
     private static void extractJsonPath_Advanced() {

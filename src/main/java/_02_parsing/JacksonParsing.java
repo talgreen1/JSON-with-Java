@@ -76,7 +76,7 @@ public class JacksonParsing {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode node = mapper.readTree(objJson);
 
-        System.out.println(node.getNodeType());
+        System.out.println(node.getNodeType()); //"OBJECT"
 
         if (node.isObject()) {
             System.out.println(node.get("id").asText());
