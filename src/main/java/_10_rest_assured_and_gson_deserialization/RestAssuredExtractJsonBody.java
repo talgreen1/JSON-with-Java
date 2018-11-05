@@ -1,4 +1,4 @@
-package _07_rest_assured_and_gson_deserialization;
+package _10_rest_assured_and_gson_deserialization;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
