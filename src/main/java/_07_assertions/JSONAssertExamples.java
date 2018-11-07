@@ -1,30 +1,40 @@
 package _07_assertions;
 
 import _06_rest_assured_json_path.RestAssuredBase;
+import net.javacrumbs.jsonunit.assertj.JsonAssert;
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import static io.restassured.RestAssured.when;
 
-public class JSONassertExamples extends RestAssuredBase {
+public class JSONAssertExamples extends RestAssuredBase {
     public static void main(String[] args) throws JSONException {
-        assertSimpleJsonObject();
-
+//        assertSimpleJsonObject();
 //        assertJsonObjectWithArray();
-
     }
 
     private static void assertJsonObjectWithArray() throws JSONException {
         String JsonObjectWithArray = "{\"name\": \"John\",\"age\": 30,\"cars\": [\"Ford\",\"BMW\",\"Fiat\"]}";
         String JsonObjectWithArrayDifferentArrayOrder = "{\"name\": \"John\",\"age\": 30,\"cars\": [\"BMW\",\"Ford\",\"Fiat\"]}";
 
-        //Strict mode false - array elements order is not checked
+        /*--------------------------------------------------
+        |  Strict mode = false
+        |
+        |  Allow array elements in any order
+        *--------------------------------------------------*/
+        System.out.println("Strict=false: Array elements in any order: Pass");
         JSONAssert.assertEquals(JsonObjectWithArray, JsonObjectWithArrayDifferentArrayOrder, false);
 
-        //Strict mode true - array elements order is checked
+        /*--------------------------------------------------
+        |  Strict mode = true
+        |
+        |  Array elements must be in order
+        *--------------------------------------------------*/
         try {
             JSONAssert.assertEquals(JsonObjectWithArray, JsonObjectWithArrayDifferentArrayOrder, true);
         } catch (AssertionError e) {
+            System.out.println("Strict=true: Array elements in any order: Fail:");
             System.out.println(e.getMessage());
         }
     }

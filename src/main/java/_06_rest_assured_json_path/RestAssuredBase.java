@@ -6,6 +6,6 @@ import static io.restassured.specification.ProxySpecification.host;
 
 public class RestAssuredBase {
     static {
-        RestAssured.proxy = host("PROXY").withPort(8888);
+        RestAssured.proxy = host("one.proxy.att.com").withPort(8080);
     }
 }

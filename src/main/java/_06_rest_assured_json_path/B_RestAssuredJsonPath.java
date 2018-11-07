@@ -15,11 +15,11 @@ public class B_RestAssuredJsonPath extends RestAssuredBase{
 
         JsonPath jsonPath = new JsonPath(new FileReader("./src/main/resources/jsonFiles/personWithCarsInnerObject.json"));
 
-        System.out.println(jsonPath.get("name"));
-        System.out.println(jsonPath.get("cars"));
-        System.out.println(jsonPath.get("cars[2]"));
-        System.out.println(jsonPath.get("address"));
-        System.out.println(jsonPath.get("address.street"));
+        System.out.println(jsonPath.getString("name"));
+        System.out.println(jsonPath.getString("cars"));
+        System.out.println(jsonPath.getString("cars[2]"));
+        System.out.println(jsonPath.getString("address"));
+        System.out.println(jsonPath.getString("address.street"));
 
 
 
