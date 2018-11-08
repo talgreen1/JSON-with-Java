@@ -1,10 +1,8 @@
-package _07_assertions;
+package _07_comparison;
 
 import _06_rest_assured_json_path.RestAssuredBase;
-import net.javacrumbs.jsonunit.assertj.JsonAssert;
 import org.json.JSONException;
 import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import static io.restassured.RestAssured.when;
 

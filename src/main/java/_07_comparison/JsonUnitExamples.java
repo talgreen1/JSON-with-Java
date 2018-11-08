@@ -1,6 +1,4 @@
-package _07_assertions;
-
-import net.javacrumbs.jsonunit.core.Option;
+package _07_comparison;
 
 import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
 import static net.javacrumbs.jsonunit.JsonAssert.when;
@@ -15,6 +13,16 @@ public class JsonUnitExamples {
         ignoringExtraFields();
         compareSchemaOnly();
         ignoringPath();
+        typePlaceholders();
+
+
+    }
+
+    private static void typePlaceholders() {
+        String json1 = "{\"id\":1, \"name\":\"tal\", \"role\":\"admin\"}";
+        String json2 = "{\"id\":\"${json-unit.any-number}\", \"name\":\"tal\", \"role\":\"admin\"}";
+
+        assertThatJson(json1).isEqualTo(json2);
     }
 
     private static void ignoringPath() {
