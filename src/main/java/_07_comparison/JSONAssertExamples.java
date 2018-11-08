@@ -8,8 +8,8 @@ import static io.restassured.RestAssured.when;
 
 public class JSONAssertExamples extends RestAssuredBase {
     public static void main(String[] args) throws JSONException {
-//        assertSimpleJsonObject();
-//        assertJsonObjectWithArray();
+        assertSimpleJsonObject();
+        assertJsonObjectWithArray();
     }
 
     private static void assertJsonObjectWithArray() throws JSONException {

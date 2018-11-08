@@ -2,6 +2,7 @@ package _05_advanced_jackson.serialization;
 
 
 import _05_advanced_jackson.serialization.models.*;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,12 +11,24 @@ import java.io.IOException;
 
 public class AdvancedJacksonSerialization {
     public static void main(String[] args) throws IOException {
-//        noAnnotations();
+        noAnnotations();
         prettyPrint();
-//        jsonGetterAnnotation();
-//        jsonPropertyOrderAnnotation();
-//        jsonRawValueAnnotation();
-//        jsonRootName();
+        jsonPropertyAnnotation();
+        jsonGetterAnnotation();
+        jsonPropertyOrderAnnotation();
+        jsonRawValueAnnotation();
+        jsonRootName();
+    }
+
+    private static void jsonPropertyAnnotation() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+
+        // Using the @JsonProperty annotation to to change field name
+        Person9 person = new Person9(1, "Yoni", 50.5);
+        json = mapper.writeValueAsString(person);
+
+        System.out.println("person: " + json);
     }
 
     private static void prettyPrint() throws JsonProcessingException {

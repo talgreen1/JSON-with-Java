@@ -1,16 +1,35 @@
-package _05_advanced_jackson;
+package _05_advanced_jackson.deserialization;
 
 import _04_serialization_and_deserialization.Person;
+import _05_advanced_jackson.deserialization.model.Person1;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class AdvancedJacksonDeserialization {
     public static void main(String[] args) throws IOException {
-        extraFieldsInJsonDeserialization();
+//        extraFieldsInJsonDeserialization();
+//        differentFieldName();
+    }
+
+    private static void differentFieldName() throws IOException {
+        String json = "{\"id\":1,\"fullName\":\"Gidi Gov\", \"age\":65}";
+
+        ObjectMapper mapper = new ObjectMapper();
+        _05_advanced_jackson.deserialization.model.Person person;
+
+        try {
+            person = mapper.readValue(json, _05_advanced_jackson.deserialization.model.Person.class);
+        } catch (UnrecognizedPropertyException e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Use the annotation @JsonProperty to indicate the JSON field name
+        Person1 person1 = mapper.readValue(json, Person1.class);
+        System.out.println(person1);
     }
 
     private static void extraFieldsInJsonDeserialization() throws IOException {
