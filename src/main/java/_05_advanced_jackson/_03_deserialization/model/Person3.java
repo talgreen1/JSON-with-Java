@@ -1,11 +1,12 @@
-package _05_advanced_jackson.serialization.models;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
+package _05_advanced_jackson._03_deserialization.model;
 
 public class Person3 {
     private int id;
     private String name;
     private double age;
+
+    public Person3() {
+    }
 
     public Person3(int id, String name, double age) {
         this.id = id;
@@ -24,6 +25,7 @@ public class Person3 {
     public double getAge() {
         return age;
     }
+
 
     @Override
     public String toString() {

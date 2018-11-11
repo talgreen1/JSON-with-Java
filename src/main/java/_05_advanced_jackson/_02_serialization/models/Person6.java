@@ -1,14 +1,17 @@
-package _05_advanced_jackson.deserialization.model;
+package _05_advanced_jackson._02_serialization.models;
 
-public class Person {
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder(alphabetic = true)
+public class Person6 {
     private int id;
     private String name;
     private double age;
+    private String aMember="a";
 
-    public Person() {
-    }
+    private String zMember="z";
 
-    public Person(int id, String name, double age) {
+    public Person6(int id, String name, double age) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -26,6 +29,13 @@ public class Person {
         return age;
     }
 
+    public String getaMember() {
+        return aMember;
+    }
+
+    public String getzMember() {
+        return zMember;
+    }
 
     @Override
     public String toString() {

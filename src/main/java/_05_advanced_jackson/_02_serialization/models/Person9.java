@@ -1,15 +1,15 @@
-package _05_advanced_jackson.serialization.models;
+package _05_advanced_jackson._02_serialization.models;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonRootName("Per")
-public class Person8 {
+public class Person9 {
     private int id;
+
+    @JsonProperty("fullName")
     private String name;
     private double age;
 
-    public Person8(int id, String name, double age) {
+    public Person9(int id, String name, double age) {
         this.id = id;
         this.name = name;
         this.age = age;

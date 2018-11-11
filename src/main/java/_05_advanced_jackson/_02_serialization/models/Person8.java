@@ -1,14 +1,14 @@
-package _05_advanced_jackson.serialization.models;
+package _05_advanced_jackson._02_serialization.models;
 
-import com.fasterxml.jackson.annotation.JsonRawValue;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-public class Person7 {
+@JsonRootName("Per")
+public class Person8 {
     private int id;
-    @JsonRawValue
     private String name;
     private double age;
 
-    public Person7(int id, String name, double age) {
+    public Person8(int id, String name, double age) {
         this.id = id;
         this.name = name;
         this.age = age;

@@ -1,8 +1,7 @@
-package _05_advanced_jackson.serialization;
+package _05_advanced_jackson._02_serialization;
 
 
-import _05_advanced_jackson.serialization.models.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import _05_advanced_jackson._02_serialization.models.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -11,13 +10,25 @@ import java.io.IOException;
 
 public class AdvancedJacksonSerialization {
     public static void main(String[] args) throws IOException {
-        noAnnotations();
-        prettyPrint();
-        jsonPropertyAnnotation();
-        jsonGetterAnnotation();
-        jsonPropertyOrderAnnotation();
-        jsonRawValueAnnotation();
-        jsonRootName();
+//        jsonPropertyAnnotation();
+//        ignoringFields();
+
+//        prettyPrint();
+//        jsonPropertyOrderAnnotation();
+//        jsonRawValueAnnotation();
+//        jsonRootName();
+    }
+
+    private static void ignoringFields() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+
+        // Use the @JsonIgnore annotation to ignore specific field
+        // Use the @JsonIgnoreProperties annotation to ignore specific fields at the class level
+        Person10 person = new Person10(1, "Yoni", 50.5);
+        json = mapper.writeValueAsString(person);
+
+        System.out.println("person: " + json);
     }
 
     private static void jsonPropertyAnnotation() throws JsonProcessingException {
@@ -127,35 +138,4 @@ public class AdvancedJacksonSerialization {
         System.out.println("p6: " + json);
 
     }
-
-    private static void jsonGetterAnnotation() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String json;
-
-
-        // Using the @JsonGetter annotation to mark a method as getter. We can add a value to change the field name
-        Person2 p2 = new Person2(1, "Yoni", 50.5);
-        json = mapper.writeValueAsString(p2);
-
-        System.out.println("p2: " + json);
-    }
-
-    private static void noAnnotations() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String json;
-        Person p = new Person(1, "Yoni", 50.5);
-
-        // By default - every "get.." method will create a field in the JSON.
-        // The field name is the method name without the 'get' prefix. First letter is lower case
-        json = mapper.writeValueAsString(p);
-
-        System.out.println("p: " + json);
-
-        // Method without 'get' prefix are ignored
-        Person1 p1 = new Person1(1, "Yoni", 50.5);
-
-        json = mapper.writeValueAsString(p1);
-        System.out.println("p1: " + json);
-    }
-
 }

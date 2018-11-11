@@ -1,26 +1,25 @@
-package _05_advanced_jackson.serialization.models;
+package _05_advanced_jackson._02_serialization.models;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonRawValue;
 
-public class Person2 {
+public class Person7 {
     private int id;
+    @JsonRawValue
     private String name;
     private double age;
 
-    public Person2(int id, String name, double age) {
+    public Person7(int id, String name, double age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    @JsonGetter("ID")
     public int getId() {
         return id;
     }
 
-    @JsonGetter
-    public String upperCaseName() {
-        return name.toUpperCase();
+    public String getName() {
+        return name;
     }
 
     public double getAge() {

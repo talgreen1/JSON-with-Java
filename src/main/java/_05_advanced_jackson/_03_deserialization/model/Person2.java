@@ -1,20 +1,11 @@
-package _05_advanced_jackson.deserialization.model;
+package _05_advanced_jackson._03_deserialization.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-public class Person1 {
+public class Person2 {
     private int id;
-
-    @JsonProperty("fullName")
     private String name;
     private double age;
 
-    public Person1() {
-    }
-
-
-    public Person1(int id, String name, double age) {
+    public Person2(int id, String name, double age) {
         this.id = id;
         this.name = name;
         this.age = age;

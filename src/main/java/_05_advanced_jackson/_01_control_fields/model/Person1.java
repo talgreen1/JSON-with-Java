@@ -1,30 +1,16 @@
-package _05_advanced_jackson.serialization.models;
+package _05_advanced_jackson._01_control_fields.model;
 
 public class Person1 {
     private int id;
     private String name;
     private double age;
+    private double height; // No getter for this property
 
-    public Person1(int id, String name, double age) {
+    public Person1(int id, String name, double age, double height) {
         this.id = id;
         this.name = name;
         this.age = age;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String upperName() {
-        return name.toUpperCase();
-    }
-
-    public double getAge() {
-        return age;
-    }
-
-    public String getSomeText() {
-        return "Hard coded text - no class member";
+        this.height = height;
     }
 
     @Override
