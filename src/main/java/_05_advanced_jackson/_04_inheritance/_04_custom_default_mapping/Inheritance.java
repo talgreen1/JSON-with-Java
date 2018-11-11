@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class Inheritance {
     public static void main(String[] args) throws IOException {
-       // TODO: Yaniv: Is there any other way???
+       // TODO: Yaniv: Is there any other way??? What is the recommanded way??
 
     }
 
