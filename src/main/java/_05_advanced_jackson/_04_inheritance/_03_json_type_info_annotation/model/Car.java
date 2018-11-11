@@ -1,17 +1,16 @@
-package _05_advanced_jackson.inheritance.model;
+package _05_advanced_jackson._04_inheritance._03_json_type_info_annotation.model;
 
 public class Car extends Vehicle {
     private int seatingCapacity;
     private double topSpeed;
 
+    public Car() {
+    }
+
     public Car(String maker, String model, int seatingCapacity, double topSpeed) {
         super(maker, model);
         this.seatingCapacity = seatingCapacity;
         this.topSpeed = topSpeed;
-    }
-
-    public Car(String maker, String model) {
-        super(maker, model);
     }
 
     public int getSeatingCapacity() {
@@ -30,5 +29,15 @@ public class Car extends Vehicle {
     public Car setTopSpeed(double topSpeed) {
         this.topSpeed = topSpeed;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "seatingCapacity=" + seatingCapacity +
+                ", topSpeed=" + topSpeed +
+                ", maker='" + maker + '\'' +
+                ", model='" + model + '\'' +
+                '}';
     }
 }
