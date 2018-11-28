@@ -2,22 +2,20 @@ package _04_serialization_and_deserialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.common.io.Resources;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class JacksonDeserialization {
     public static void main(String[] args) throws IOException {
-        primitivesDeserialization();
-        objectDeserialization();
-        collectionDeserialization();
+//        primitivesDeserialization();
+//        objectDeserialization();
+//        collectionDeserialization();
         deserializeToMap();
     }
 
@@ -25,40 +23,51 @@ public class JacksonDeserialization {
         ObjectMapper mapper = new ObjectMapper();
 
         String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
-        Map<String, Object> map = mapper.readValue(json,  new TypeReference<Map<String,Object>>(){});
+        Map<String, Object> map = mapper.readValue(json, new TypeReference<Map<String, Object>>() {
+        });
         System.out.println(map);
 
-        map = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/personWithCarsInnerObject.json"), new TypeReference<Map<String,Object>>(){});
+        URL url = Resources.getResource("jsonFiles/personWithCarsInnerObject.json");
+        map = mapper.readValue(url, new TypeReference<Map<String, Object>>() {
+        });
         System.out.println(map);
     }
 
     private static void collectionDeserialization() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        FileReader fileReader = new FileReader("./src/main/resources/jsonFiles/numbers.json");
+        URL url = Resources.getResource("jsonFiles/numbers.json");
 
         // Wrong syntax
-//        List<Integer> list = mapper.readValue(fileReader, List<Integer>.class)
+        //List<Integer> list = mapper.readValue(url, List<Integer>.class)
 
         // Unchecked assignment warning
-//        List<Integer> list = mapper.readValue(fileReader, List.class);
+        //List<Integer> list = mapper.readValue(url, List.class);
 
         // Use TypeToken to get real type
-        List<Integer> list = mapper.readValue(fileReader, new TypeReference<List<Integer>>(){});
+        List<Integer> list = mapper.readValue(url, new TypeReference<List<Integer>>() { });
 
         System.out.println(list);
     }
 
     private static void objectDeserialization() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Person person = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/person1_all.json"), Person.class);
+
+        URL url = Resources.getResource("jsonFiles/person1_all.json");
+        Person person = mapper.readValue(url, Person.class);
         System.out.println(person);
 
-        person = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/person2_no_colors_wrong_order.json"), Person.class);
+        url = Resources.getResource("jsonFiles/person2_no_colors_wrong_order.json");
+        person = mapper.readValue(url, Person.class);
         System.out.println(person);
 
         // Doesn't work - Class Person doesn't have "address" member
-//        person = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/person3_extra_field.json"), Person.class);
-//        System.out.println(person);
+        try {
+            url = Resources.getResource("jsonFiles/person3_extra_field.json");
+            person = mapper.readValue(url, Person.class);
+        } catch (Exception e) {
+            System.out.println("Doesn't work - Class Person doesn't have 'address' member");
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void primitivesDeserialization() throws IOException {
@@ -82,7 +91,9 @@ public class JacksonDeserialization {
         String[] stringArrayResult = mapper.readValue("[\"hello\",\"world\"]", String[].class);
         System.out.println(Arrays.toString(stringArrayResult));
 
-        stringArrayResult = mapper.readValue(new FileReader("./src/main/resources/jsonFiles/names.json"), String[].class);
+        URL url = Resources.getResource("jsonFiles/names.json");
+        stringArrayResult = mapper.readValue(url, String[].class);
+
         System.out.println(Arrays.toString(stringArrayResult));
 
     }

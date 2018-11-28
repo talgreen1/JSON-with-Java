@@ -10,13 +10,13 @@ import java.io.IOException;
 
 public class AdvancedJacksonSerialization {
     public static void main(String[] args) throws IOException {
-//        jsonPropertyAnnotation();
-//        ignoringFields();
+        jsonPropertyAnnotation();
+        ignoringFields();
 
-//        prettyPrint();
-//        jsonPropertyOrderAnnotation();
-//        jsonRawValueAnnotation();
-//        jsonRootName();
+        prettyPrint();
+        jsonPropertyOrderAnnotation();
+        jsonRawValueAnnotation();
+        jsonRootName();
     }
 
     private static void ignoringFields() throws JsonProcessingException {
@@ -117,7 +117,7 @@ public class AdvancedJacksonSerialization {
 
         System.out.println("p3: " + json);
 
-        // We can use the @JacksonPropertyOrder to set specific order for some fields and order type for others
+        // We can use the @JacksonPropertyOrder to set specific order for some fields and order type for others //TODO: Understand
 
         // Set specific order to all fields
         Person4 p4 = new Person4(1, "Yoni", 50.5);

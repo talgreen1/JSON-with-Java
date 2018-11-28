@@ -4,15 +4,13 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-//TODO: Ask Yaniv : Is there another way? Without adding annotataions?
-
 @JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,     //TODO: Ask Yaniv about Id.Custom
+        use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "type")
 @JsonSubTypes({
-        @Type(value = Car.class, name = "car"),
-        @Type(value = Truck.class, name = "truck")
+        @Type(value = Car.class),
+        @Type(value = Truck.class)
 })
 
 //@JsonTypeInfo(
@@ -28,23 +26,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 //
 //@JsonTypeInfo(
 //        use = JsonTypeInfo.Id.NAME,
-//        include = JsonTypeInfo.As.WRAPPER_OBJECT,
-//        property = "type")
+//        include = JsonTypeInfo.As.WRAPPER_OBJECT)
 //@JsonSubTypes({
 //        @Type(value = Car.class, name = "car"),
 //        @Type(value = Truck.class, name = "truck")
 //})
 
-
-
-//@JsonTypeInfo(
-//        use = JsonTypeInfo.Id.NAME,
-//        include = JsonTypeInfo.As.EXISTING_PROPERTY,  //TODO: Ask Yaniv about Existing_Property, External_Property
-//        property = "type")
-//@JsonSubTypes({
-//        @Type(value = Car.class, name = "car"),
-//        @Type(value = Truck.class, name = "truck")
-//})
 public abstract class Vehicle {
     protected String maker;
     protected String model;

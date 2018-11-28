@@ -20,7 +20,7 @@ public class JacksonSerialization {
         ObjectMapper mapper = new ObjectMapper();
         Person person = new Person(1, "Gidi", 50.5, new String[]{"White", "Red"}, null);
 
-        try (FileWriter writer = new FileWriter("c:/temp/person.json");) {
+        try (FileWriter writer = new FileWriter("c:/temp/person.json")) {
             mapper.writeValue(writer, person);
         }
     }

@@ -12,7 +12,7 @@ import java.io.IOException;
 @SuppressWarnings("Duplicates")
 public class ControlFields {
     public static void main(String[] args) throws IOException {
-        serialize();
+//        serialize();
         deserialize();
 
         /*--------------------------------------------------------------------------------------------------
