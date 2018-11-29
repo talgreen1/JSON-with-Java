@@ -1,24 +1,28 @@
 package _04_serialization_and_deserialization;
 
+import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
 public class GsonDeserialization {
-    public static void main(String[] args) throws FileNotFoundException {
-        primitivesDeserialization();
+    public static void main(String[] args) throws IOException {
+//        primitivesDeserialization();
         objectDeserialization();
-        collectionDeserialization();
+//        collectionDeserialization();
     }
 
 
-    private static void primitivesDeserialization() throws FileNotFoundException {
+    private static void primitivesDeserialization() throws IOException {
         // GsonDeserialization - From JSON to instance
         Gson gson = new Gson();
 
@@ -40,22 +44,35 @@ public class GsonDeserialization {
         String[] stringArrayResult = gson.fromJson("[\"hello\",\"world\"]", String[].class);
         System.out.println(Arrays.toString(stringArrayResult));
 
-        stringArrayResult = gson.fromJson(new FileReader("./src/main/resources/jsonFiles/names.json"), String[].class);
+
+        URL url = Resources.getResource("jsonFiles/names.json");
+        String jsonString = Resources.toString(url, Charset.defaultCharset());
+        stringArrayResult = gson.fromJson(jsonString, String[].class);
         System.out.println(Arrays.toString(stringArrayResult));
 
     }
 
 
-    private static void objectDeserialization() throws FileNotFoundException {
+    private static void objectDeserialization() throws IOException {
         Gson gson = new Gson();
 
-        Person person = gson.fromJson(new FileReader("./src/main/resources/jsonFiles/person1_all.json"), Person.class);
+        URL url = Resources.getResource("jsonFiles/person1_all.json");
+        String jsonString = Resources.toString(url, Charset.defaultCharset());
+
+        Person person = gson.fromJson(jsonString, Person.class);
         System.out.println(person);
 
-        person = gson.fromJson(new FileReader("./src/main/resources/jsonFiles/person2_no_colors_wrong_order.json"), Person.class);
+
+        url = Resources.getResource("jsonFiles/person2_no_colors_wrong_order.json");
+        jsonString = Resources.toString(url, Charset.defaultCharset());
+
+        person = gson.fromJson(jsonString, Person.class);
         System.out.println(person);
 
-        person = gson.fromJson(new FileReader("./src/main/resources/jsonFiles/person3_extra_field.json"), Person.class);
+        url = Resources.getResource("jsonFiles/person3_extra_field.json");
+        jsonString = Resources.toString(url, Charset.defaultCharset());
+
+        person = gson.fromJson(jsonString, Person.class);
         System.out.println(person);
 
 
