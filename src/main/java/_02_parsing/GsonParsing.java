@@ -1,9 +1,13 @@
 package _02_parsing;
 
+import com.google.common.io.Resources;
 import com.google.gson.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +15,7 @@ import java.util.Map;
 public class GsonParsing {
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         simpleValuesJson();
         simpleObjectParsing();
         simpleArrayParsing();
@@ -19,10 +23,12 @@ public class GsonParsing {
 
     }
 
-    private static void objectWithArrayParsing() throws FileNotFoundException {
+    private static void objectWithArrayParsing() throws IOException {
         JsonParser parser = new JsonParser();
+        URL url = Resources.getResource("jsonFiles/personWithCars.json");
+        String jsonString = Resources.toString(url, Charset.defaultCharset());
 
-        JsonElement jsonTree = parser.parse(new FileReader("./src/main/resources/jsonFiles/personWithCars.json"));
+        JsonElement jsonTree = parser.parse(jsonString);
 
         JsonObject jsonObject = jsonTree.getAsJsonObject();
         System.out.printf("Name: %s%n", jsonObject.get("name").getAsString());

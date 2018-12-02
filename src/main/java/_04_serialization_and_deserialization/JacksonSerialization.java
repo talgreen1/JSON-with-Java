@@ -14,6 +14,16 @@ public class JacksonSerialization {
         collectionSerialization();
         objectSerialization();
         writeToFile();
+        enumSerialization();
+    }
+
+    private static void enumSerialization() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        PersonWithEnum person = new PersonWithEnum(1, "Gidi", 50.5, Day.SUNDAY);
+        String json = mapper.writeValueAsString(person);
+
+        System.out.println(json);
     }
 
     private static void writeToFile() throws IOException {

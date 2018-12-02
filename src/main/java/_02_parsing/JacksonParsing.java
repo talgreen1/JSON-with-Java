@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.google.common.io.Resources;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -13,6 +14,7 @@ import javax.xml.transform.Source;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
 
 /**
@@ -28,7 +30,9 @@ public class JacksonParsing {
 
     private static void objectWithArrayParsing() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode node = mapper.readTree(new FileReader("./src/main/resources/jsonFiles/personWithCars.json"));
+        URL url = Resources.getResource("jsonFiles/personWithCars.json");
+
+        JsonNode node = mapper.readTree(url);
 
         System.out.println(node.getNodeType());
 
