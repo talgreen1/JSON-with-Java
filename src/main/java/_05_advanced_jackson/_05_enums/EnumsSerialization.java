@@ -1,9 +1,6 @@
 package _05_advanced_jackson._05_enums;
 
-import _05_advanced_jackson._05_enums.model.Day;
-import _05_advanced_jackson._05_enums.model.Day1;
-import _05_advanced_jackson._05_enums.model.PersonWithEnum;
-import _05_advanced_jackson._05_enums.model.PersonWithEnum1;
+import _05_advanced_jackson._05_enums.model.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,8 +9,34 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class EnumsSerialization {
     public static void main(String[] args) throws JsonProcessingException {
-//        basicEnumSerialization();
+        basicEnumSerialization();
         enumAsObject();
+        enumFields();
+        enumCustomSerializer();
+    }
+
+    private static void enumCustomSerializer() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+        json = mapper.writeValueAsString(Day3.FRIDAY);
+        System.out.println(json);
+
+        PersonWithEnum3 person = new PersonWithEnum3(1, "Gidi", 50.5, Day3.SUNDAY);
+        json = mapper.writeValueAsString(person);
+
+        System.out.println(json);
+    }
+
+    private static void enumFields() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json;
+        json = mapper.writeValueAsString(Day2.FRIDAY);
+        System.out.println(json);
+
+        PersonWithEnum2 person = new PersonWithEnum2(1, "Gidi", 50.5, Day2.SUNDAY);
+        json = mapper.writeValueAsString(person);
+
+        System.out.println(json);
     }
 
     private static void enumAsObject() throws JsonProcessingException {
