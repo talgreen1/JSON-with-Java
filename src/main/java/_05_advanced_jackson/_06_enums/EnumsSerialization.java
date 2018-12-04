@@ -3,6 +3,7 @@ package _05_advanced_jackson._06_enums;
 import _05_advanced_jackson._06_enums.model.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 /**
  * https://www.baeldung.com/jackson-serialize-enums
@@ -10,9 +11,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class EnumsSerialization {
     public static void main(String[] args) throws JsonProcessingException {
         basicEnumSerialization();
+        writeEnumUsingIndex();
         enumAsObject();
         enumFields();
         enumCustomSerializer();
+    }
+
+    private static void writeEnumUsingIndex() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.WRITE_ENUMS_USING_INDEX);
+        String json;
+        json = mapper.writeValueAsString(Day.FRIDAY);
+        System.out.println(json);
     }
 
     private static void enumCustomSerializer() throws JsonProcessingException {
