@@ -1,4 +1,4 @@
-package _05_advanced_jackson._05_enums.model;
+package _05_advanced_jackson._06_enums.model;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

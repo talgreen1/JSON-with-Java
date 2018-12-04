@@ -1,17 +1,17 @@
-package _05_advanced_jackson._05_enums.model;
+package _05_advanced_jackson._06_enums.model;
 
 
 
-public class PersonWithEnum2 {
+public class PersonWithEnum3 {
     private int id;
     private String name;
     private double age;
-    private Day2 dayOfBirth;
+    private Day3 dayOfBirth;
 
-    public PersonWithEnum2() {
+    public PersonWithEnum3() {
     }
 
-    public PersonWithEnum2(int id, String name, double age, Day2 dayOfBirth) {
+    public PersonWithEnum3(int id, String name, double age, Day3 dayOfBirth) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -31,7 +31,7 @@ public class PersonWithEnum2 {
         return age;
     }
 
-    public Day2 getDayOfBirth() {
+    public Day3 getDayOfBirth() {
         return dayOfBirth;
     }
 
