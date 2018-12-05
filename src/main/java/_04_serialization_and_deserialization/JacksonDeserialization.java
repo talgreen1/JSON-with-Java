@@ -2,6 +2,7 @@ package _04_serialization_and_deserialization;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.google.common.io.Resources;
 
 import java.io.FileReader;
@@ -13,10 +14,27 @@ import java.util.Map;
 
 public class JacksonDeserialization {
     public static void main(String[] args) throws IOException {
-        primitivesDeserialization();
-        objectDeserialization();
-        collectionDeserialization();
-        deserializeToMap();
+//        primitivesDeserialization();
+//        objectDeserialization();
+//        collectionDeserialization();
+//        deserializeToMap();
+        deserializeImmutableObject();
+    }
+
+    private static void deserializeImmutableObject() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        /**
+         * In Java 8 - can use the module 'ParameterNamesModule'. No need for default constructor and setters.
+         * Can deserialize Immutable classes without any annotation by using the all args constructor.
+         * Need to compile with "-parameters'
+         */
+        mapper.registerModule(new ParameterNamesModule());
+
+        String json = "{\"name\":\"gidi\", \"id\":1}"; // {"name":"gidi", "id":1}
+        URL url = Resources.getResource("jsonFiles/person1_all.json");
+        ImmutablePerson person = mapper.readValue(json, ImmutablePerson.class);
+        System.out.println(person);
     }
 
     private static void deserializeToMap() throws IOException {
