@@ -1,7 +1,6 @@
 package _05_advanced_jackson._05_custom_serializer;
 
 import _05_advanced_jackson._05_custom_serializer.model.Item;
-import _05_advanced_jackson._05_custom_serializer.model.Item1;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

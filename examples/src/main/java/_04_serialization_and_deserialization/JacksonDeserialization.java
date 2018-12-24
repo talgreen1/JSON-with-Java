@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.google.common.io.Resources;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;

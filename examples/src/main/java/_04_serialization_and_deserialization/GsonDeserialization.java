@@ -2,7 +2,6 @@ package _04_serialization_and_deserialization;
 
 import com.google.common.io.Resources;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileNotFoundException;

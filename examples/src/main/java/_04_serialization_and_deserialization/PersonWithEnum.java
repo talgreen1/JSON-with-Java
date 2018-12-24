@@ -1,7 +1,5 @@
 package _04_serialization_and_deserialization;
 
-import java.util.Arrays;
-
 public class PersonWithEnum {
     private int id;
     private String name;

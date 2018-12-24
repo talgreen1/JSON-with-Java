@@ -4,7 +4,6 @@ package _05_advanced_jackson._04_inheritance._01_defaults;
 import _05_advanced_jackson._04_inheritance._01_defaults.model.Car;
 import _05_advanced_jackson._04_inheritance._01_defaults.model.Fleet;
 import _05_advanced_jackson._04_inheritance._01_defaults.model.Truck;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 

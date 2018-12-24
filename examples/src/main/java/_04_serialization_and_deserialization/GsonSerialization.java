@@ -3,7 +3,6 @@ package _04_serialization_and_deserialization;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;

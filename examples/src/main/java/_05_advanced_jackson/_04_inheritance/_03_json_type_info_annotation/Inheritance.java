@@ -3,7 +3,6 @@ package _05_advanced_jackson._04_inheritance._03_json_type_info_annotation;
 import _05_advanced_jackson._04_inheritance._03_json_type_info_annotation.model.Car;
 import _05_advanced_jackson._04_inheritance._03_json_type_info_annotation.model.Fleet;
 import _05_advanced_jackson._04_inheritance._03_json_type_info_annotation.model.Truck;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
