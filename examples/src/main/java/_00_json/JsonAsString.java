@@ -1,13 +1,10 @@
-package _01_json_as_string;
+package _00_json;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

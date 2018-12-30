@@ -26,6 +26,7 @@
     <modules>
         <module>examples</module>
         <module>exercises</module>
+        <module>answers</module>
     </modules>
 
 
