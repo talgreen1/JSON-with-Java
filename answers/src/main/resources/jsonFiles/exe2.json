@@ -1,0 +1,22 @@
+[
+  {
+    "name":"Gidi Gov",
+    "id":1,
+    "numOfChildren":3
+  },
+  {
+    "name":"Yoni Rechter",
+    "id":2,
+    "numOfChildren":2
+  },
+  {
+    "name":"Dany Sanderson",
+    "id":3,
+    "numOfChildren":2
+  },
+  {
+    "name":"Itzhak Klepter",
+    "id":4,
+    "numOfChildren":1
+  }
+]
