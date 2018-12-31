@@ -10,10 +10,10 @@ import java.util.List;
 
 public class JacksonSerialization {
     public static void main(String[] args) throws IOException {
-        primitivesSerialization();
-        collectionSerialization();
-        objectSerialization();
-        writeToFile();
+//        primitivesSerialization();
+//        collectionSerialization();
+//        objectSerialization();
+//        writeToFile();
         enumSerialization();
     }
 
@@ -67,7 +67,7 @@ public class JacksonSerialization {
         System.out.println(res);
 
         int[] values = {1, 2, 3};
-        res = mapper.writeValueAsString(values);       // ==> [1]
+        res = mapper.writeValueAsString(values);       // ==> [1, 2, 3]
         System.out.println(res);
     }
 }

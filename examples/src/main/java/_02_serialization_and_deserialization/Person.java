@@ -8,7 +8,6 @@ public class Person {
     private double age;
     private String [] favoritesColors;
     private String info = null;
-    private transient boolean inCache= false;
 
     public Person() {
     }
@@ -37,10 +36,6 @@ public class Person {
         return favoritesColors;
     }
 
-    public boolean isInCache() {
-        return inCache;
-    }
-
     public String getInfo() {
         return info;
     }
@@ -53,7 +48,6 @@ public class Person {
                 ", age=" + age +
                 ", favoritesColors=" + Arrays.toString(favoritesColors) +
                 ", info='" + info + '\'' +
-                ", inCache=" + inCache +
                 '}';
     }
 }
