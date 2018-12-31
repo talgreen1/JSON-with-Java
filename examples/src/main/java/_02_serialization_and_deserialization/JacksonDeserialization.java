@@ -13,10 +13,10 @@ import java.util.Map;
 
 public class JacksonDeserialization {
     public static void main(String[] args) throws IOException {
-//        primitivesDeserialization();
-//        objectDeserialization();
-//        collectionDeserialization();
-//        deserializeToMap();
+        primitivesDeserialization();
+        objectDeserialization();
+        collectionDeserialization();
+        deserializeToMap();
         deserializeImmutableObject();
     }
 
