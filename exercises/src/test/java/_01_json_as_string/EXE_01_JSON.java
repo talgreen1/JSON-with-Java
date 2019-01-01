@@ -1,6 +1,5 @@
-package _00_json;
+package _01_json_as_string;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;
 import org.junit.Test;
