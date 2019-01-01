@@ -2,7 +2,7 @@ package _02_serialization_and_deserialization;
 
 import java.time.LocalDateTime;
 
-public class Exe_02_Answer_Person {
+public class Exe_03_Answer_Person {
     private String name;
     private int id;
     int numOfChildren;
@@ -33,7 +33,7 @@ public class Exe_02_Answer_Person {
 
     @Override
     public String toString() {
-        return "Exe_02_Answer_Person{" +
+        return "Exe_03_Answer_Person{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 ", numOfChildren=" + numOfChildren +

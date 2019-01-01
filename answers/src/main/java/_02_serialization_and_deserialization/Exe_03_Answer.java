@@ -13,21 +13,21 @@ import java.util.stream.Collectors;
 
 
 @SuppressWarnings("Duplicates")
-public class Exe_02_Answer {
+public class Exe_03_Answer {
     public static final String RESULT_FILE_PATH = "c:/temp/names.json";
 
     public void execute() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         // Read json file into list of persons
-        URL url = Resources.getResource("jsonFiles/exe2.json");
-        List<Exe_02_Answer_Person> persons = mapper.readValue(url, new TypeReference<List<Exe_02_Answer_Person>>() {
+        URL url = Resources.getResource("jsonFiles/exe3.json");
+        List<Exe_03_Answer_Person> persons = mapper.readValue(url, new TypeReference<List<Exe_03_Answer_Person>>() {
         });
 
         // sort persons according to date
         List<String> sortedNamesbyChildren = persons.stream()
-                .sorted(Comparator.comparingInt(Exe_02_Answer_Person::getNumOfChildren))
-                .map(Exe_02_Answer_Person::getName)
+                .sorted(Comparator.comparingInt(Exe_03_Answer_Person::getNumOfChildren))
+                .map(Exe_03_Answer_Person::getName)
                 .collect(Collectors.toList());
 
         try (FileWriter writer = new FileWriter("c:/temp/names.json")) {
