@@ -1,4 +1,4 @@
-package _01_json_as_string;
+package _00_json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Resources;

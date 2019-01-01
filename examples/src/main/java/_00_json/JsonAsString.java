@@ -1,4 +1,4 @@
-package _01_json_as_string;
+package _00_json;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
